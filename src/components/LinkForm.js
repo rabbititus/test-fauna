@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AppContext } from "../app-context";
 
-export default function LinkForm({ refreshLinks }) {
+export default function LinkForm() {
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");
   const [description, setDescription] = useState("");
+  const refreshLinks = useContext(AppContext);
 
   const resetForm = () => {
     setName("");
@@ -30,7 +32,7 @@ export default function LinkForm({ refreshLinks }) {
       <div className="card-header">Add Link</div>
       <div className="card-body">
         <form onSubmit={handleSubmit}>
-          <div className="mb-3">
+          <div className="form-group">
             <label htmlFor="name">Name</label>
             <input
               type="text"
