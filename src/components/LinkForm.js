@@ -17,7 +17,7 @@ export default function LinkForm() {
     e.preventDefault();
     const body = { name, url, description };
     try {
-      const res = await fetch("/api/createLink", {
+      const res = await fetch("/.netlify/functions/createLink", {
         method: "POST",
         body: JSON.stringify(body),
       });
